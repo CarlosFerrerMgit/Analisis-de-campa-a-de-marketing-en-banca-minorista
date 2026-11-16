@@ -19,7 +19,7 @@ Partiendo de dos fuentes de datos desacopladas, el objetivo ha sido auditar, lim
 
 ### B. Competencias Técnicas Demostradas
 * **Manipulación con Pandas & NumPy:** Uso eficiente de operaciones vectorizadas, agrupaciones complejas (`.groupby().agg()`, `.transform()`), discretización de variables (`pd.cut()`) y gestión de tipos *nullable* (`Int64`).
-* **Validación Estadística (`scipy.stats`):** Aplicación fundamentada de pruebas según la naturaleza de cada variable: Correlación Biserial-Puntual, Test Chi-cuadrado ($\chi^2$) de Independencia, Test no paramétrico U de Mann-Whitney, Correlación de Rangos de Spearman y Test *t* de Student.
+* **Validación Estadística (`scipy.stats`):** Aplicación fundamentada de pruebas según la naturaleza de cada variable: Correlación Biserial-Puntual, Test Chi-cuadrado de Independencia, Test no paramétrico U de Mann-Whitney, Correlación de Rangos de Spearman y Test *t* de Student.
 * **Visualización Analítica (`Matplotlib` & `Seaborn`):** Diseño de gráficos limpios orientados a negocio.
 
 > 📄 *Para consultar el desarrollo completo del código, la metodología de limpieza y todas las pruebas estadísticas, puedes revisar el documento [INFORME TECNICO DATAPROJECT.pdf](docs/INFORME%20TECNICO%20DATAPROJECT.pdf) y los cuadernos de la carpeta [notebooks/](notebooks/).*
@@ -75,7 +75,7 @@ El éxito de la campaña no depende de llamar a clientes con mayores ingresos ni
 ### B. Recomendaciones Operativas para el Banco
 
 1. **Límite máximo de 3 llamadas por cliente:** Configurar un descarte automático tras el tercer intento fallido. A partir de la cuarta llamada la efectividad cae por debajo de la media global, consumiendo horas operativas y generando rechazo.
-2. **Priorizar historial previo y edad sobre el nivel de ingresos:** Enrutar primero a los clientes con éxito en campañas anteriores (`poutcome == 'success'`, **65,32%** de conversión) y al segmento **Jubilados (>65 años, 46,0%)**[cite: 21, 22]. Se recomienda eliminar el filtro por salario (`Income`), ya que no influye estadísticamente en la compra.
+2. **Priorizar historial previo y edad sobre el nivel de ingresos:** Enrutar primero a los clientes con éxito en campañas anteriores (`poutcome == 'success'`, **65,32%** de conversión) y al segmento **Jubilados (>65 años, 46,0%)**. Se recomienda eliminar el filtro por salario (`Income`), ya que no influye estadísticamente en la compra.
 3. **Sincronizar las campañas con el ciclo del Euribor:** Concentrar el presupuesto y las llamadas masivas en periodos con tipos de interés bajos o descendentes (<3%), momento en que el depósito resulta más atractivo frente a otras alternativas.
 4. **Fomentar llamadas de asesoramiento frente a llamadas rápidas:** Evitar evaluar a los operadores únicamente por el volumen de llamadas por hora. Las suscripciones exitosas presentan una mediana de duración de **449 segundos (~7,5 min)** frente a los 163 s de los rechazos, por lo que tras superar los 3-4 minutos de conversación se debe priorizar una explicación detallada para asegurar la contratación.
 
